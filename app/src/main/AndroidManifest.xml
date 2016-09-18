@@ -15,5 +15,7 @@
         <activity android:name="com.frunch.main.LoginActivity" android:theme="@style/AppTheme.Dark"/>
         <activity android:name="com.frunch.main.SignupActivity" android:theme="@style/AppTheme.Dark"/>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
 </manifest>

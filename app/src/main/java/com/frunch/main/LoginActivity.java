@@ -11,6 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.frunch.main.model.User;
+import com.frunch.main.repo.UserRepository;
+import com.strongloop.android.loopback.AccessToken;
+import com.strongloop.android.loopback.RestAdapter;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -72,16 +77,31 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own authentication logic here.
-
-        new android.os.Handler().postDelayed(
+        final  RestAdapter  restAdapter = new RestAdapter(getApplicationContext(), "http://www.frunch.io/api");
+        final UserRepository userRepo = restAdapter.createRepository(UserRepository.class);
+        userRepo.loginUser(email , password , new UserRepository.LoginCallback() {
+            @Override
+            public void onSuccess(AccessToken token, User currentUser) {
+                progressDialog.dismiss();
+                onLoginSuccess();
+                System.out.println(token.getUserId() + ":" + currentUser.getId());
+            }
+            @Override
+            public void onError(Throwable t) {
+                Log.e("Chatome", "Login E", t);
+                progressDialog.dismiss();
+                onLoginFailed();
+            }
+        });
+      /*  new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
+                      //  onLoginSuccess();
                         // onLoginFailed();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 3000);*/
     }
 
 
@@ -119,7 +139,6 @@ public class LoginActivity extends AppCompatActivity {
 
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
             valid = false;
