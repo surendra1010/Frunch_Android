@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.frunch.main.model.User;
 import com.frunch.main.repo.UserRepository;
+import com.google.common.collect.ImmutableMap;
 import com.strongloop.android.loopback.RestAdapter;
+import com.strongloop.android.loopback.callbacks.VoidCallback;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -89,20 +91,27 @@ public class SignupActivity extends AppCompatActivity {
         // TODO: Implement your own signup logic here.
         final RestAdapter restAdapter = new RestAdapter(getApplicationContext(), "http://www.frunch.io/api");
         final UserRepository userRepo = restAdapter.createRepository(UserRepository.class);
-        Map<String,String> parameters = new HashMap<String,String>();
-        parameters.put("firstname",firstname);
-        parameters.put("lastname",middlename);
-        parameters.put("middlename",lastname);
-        parameters.put("phone",phone);
-        parameters.put("email",email);
-        parameters.put("password",password);
-        User user = userRepo.createObject(parameters);
+        User user = userRepo.createUser(email, password, ImmutableMap.of("firstname",firstname,"lastname",lastname,"middlename",middlename,"phone",phone));
         if(user == null){
+            progressDialog.dismiss();
             onSignupFailed();
         }else{
-            onSignupSuccess();
+            user.save(new VoidCallback() {
+                @Override
+                public void onSuccess() {
+                    progressDialog.dismiss();
+                    onSignupSuccess();
+                }
+
+                @Override
+                public void onError(Throwable t) {
+                    Log.d(TAG, "Error :: "+t.fillInStackTrace());
+                    progressDialog.dismiss();
+                    onSignupFailed();
+                }
+            });
         }
-        progressDialog.dismiss();
+
        /* new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -171,4 +180,5 @@ public class SignupActivity extends AppCompatActivity {
 
         return valid;
     }
+
 }

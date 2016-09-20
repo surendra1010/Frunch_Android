@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(AccessToken token, User currentUser) {
                 progressDialog.dismiss();
                 onLoginSuccess();
-                System.out.println(token.getUserId() + ":" + currentUser.getId());
+                Log.d(TAG, "***************"+token.getUserId() + ":" + currentUser.getId());
             }
             @Override
             public void onError(Throwable t) {
