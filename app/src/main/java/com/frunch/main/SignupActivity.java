@@ -4,11 +4,19 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.frunch.main.model.User;
+import com.frunch.main.repo.UserRepository;
+import com.strongloop.android.loopback.RestAdapter;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -16,8 +24,14 @@ import butterknife.ButterKnife;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    @Bind(R.id.input_name)
-    EditText _nameText;
+    @Bind(R.id.input_firstname)
+    EditText _firstnameText;
+    @Bind(R.id.input_middlename)
+    EditText _middlenameText;
+    @Bind(R.id.input_lastname)
+    EditText _lastnameText;
+    @Bind(R.id.input_phone)
+    EditText _phoneText;
     @Bind(R.id.input_email)
     EditText _emailText;
     @Bind(R.id.input_password)
@@ -65,13 +79,31 @@ public class SignupActivity extends AppCompatActivity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String name = _nameText.getText().toString();
+        String firstname = _firstnameText.getText().toString();
+        String middlename = _middlenameText.getText().toString();
+        String lastname = _lastnameText.getText().toString();
+        String phone = _phoneText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own signup logic here.
-
-        new android.os.Handler().postDelayed(
+        final RestAdapter restAdapter = new RestAdapter(getApplicationContext(), "http://www.frunch.io/api");
+        final UserRepository userRepo = restAdapter.createRepository(UserRepository.class);
+        Map<String,String> parameters = new HashMap<String,String>();
+        parameters.put("firstname",firstname);
+        parameters.put("lastname",middlename);
+        parameters.put("middlename",lastname);
+        parameters.put("phone",phone);
+        parameters.put("email",email);
+        parameters.put("password",password);
+        User user = userRepo.createObject(parameters);
+        if(user == null){
+            onSignupFailed();
+        }else{
+            onSignupSuccess();
+        }
+        progressDialog.dismiss();
+       /* new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         // On complete call either onSignupSuccess or onSignupFailed
@@ -80,7 +112,7 @@ public class SignupActivity extends AppCompatActivity {
                         // onSignupFailed();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 3000);*/
     }
 
 
@@ -91,34 +123,47 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getBaseContext(), "Signup failed failed", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
     public boolean validate() {
         boolean valid = true;
 
-        String name = _nameText.getText().toString();
+        String firstname = _firstnameText.getText().toString();
+        String lastname = _lastnameText.getText().toString();
+        String phone = _phoneText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        if (name.isEmpty() || name.length() < 3) {
-            _nameText.setError("at least 3 characters");
+        if (firstname.isEmpty()) {
+            _firstnameText.setError("First name should not be empty.");
             valid = false;
         } else {
-            _nameText.setError(null);
+            _firstnameText.setError(null);
+        }
+        if (lastname.isEmpty()) {
+            _lastnameText.setError("Last name should not be empty.");
+            valid = false;
+        } else {
+            _lastnameText.setError(null);
+        }
+        if (phone.isEmpty() || !Patterns.PHONE.matcher(phone).matches()) {
+            _phoneText.setError("Enter a valid phone number");
+            valid = false;
+        } else {
+            _phoneText.setError(null);
         }
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("enter a valid email address");
+            _emailText.setError("Enter a valid email address");
             valid = false;
         } else {
             _emailText.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
+        if (password.isEmpty() || password.length() < 4 || password.length() > 16) {
+            _passwordText.setError("between 4 and 16 alphanumeric characters");
             valid = false;
         } else {
             _passwordText.setError(null);
