@@ -13,23 +13,22 @@ import com.strongloop.android.loopback.callbacks.VoidCallback;
 
 
 public class MainActivity extends ActionBarActivity {
-
-    final RestAdapter restAdapter = new RestAdapter(getApplicationContext(), "http://www.frunch.io/api");
-    final UserRepository userRepo = restAdapter.createRepository(UserRepository.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.restaurants_list);
+        //setContentView(R.layout.restaurant_details_activity);
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        System.out.println("ksfjlkadsjflkasjflkasjkflslfjaslkfjaslfjlasjfdlsa");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+       /* Intent intent = new Intent(this, RestaurantDetailsActivity.class);
+        startActivity(intent);*/
         return true;
     }
 
@@ -45,6 +44,8 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         if (id == R.id.action_logout) {
+            final RestAdapter restAdapter = new RestAdapter(getApplicationContext(), "http://frunch.mybluemix.net//api");
+            final UserRepository userRepo = restAdapter.createRepository(UserRepository.class);
             // Launching the login activity
             userRepo.logout(new VoidCallback() {
                 @Override

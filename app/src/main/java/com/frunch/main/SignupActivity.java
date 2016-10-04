@@ -89,7 +89,7 @@ public class SignupActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
         // TODO: Implement your own signup logic here.
-        final RestAdapter restAdapter = new RestAdapter(getApplicationContext(), "http://www.frunch.io/api");
+        final RestAdapter restAdapter = new RestAdapter(getApplicationContext(), "http://frunch.mybluemix.net/api");
         final UserRepository userRepo = restAdapter.createRepository(UserRepository.class);
         User user = userRepo.createUser(email, password, ImmutableMap.of("firstname",firstname,"lastname",lastname,"middlename",middlename,"phone",phone));
         if(user == null){
