@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Frunch</string>
+
+    /*Dialog lables*/
+    <string name="please_wait">Please wait</string>
+
+    /*APIs*/
+    <string name="restarants_list">http://frunch.mybluemix.net/api/Restaurants</string>
+
+    /*Error messages*/
+    <string name="network_error">Please check your network connection.</string>
+
+</resources>
