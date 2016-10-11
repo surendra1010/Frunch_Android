@@ -9,5 +9,6 @@
 
     /*Error messages*/
     <string name="network_error">Please check your network connection.</string>
+    <string name="no_items_text">No items available.</string>
 
 </resources>
