@@ -25,10 +25,10 @@ public class MenuCategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.menu_category_layout,container,false);
 
         RecyclerView menuListView = (RecyclerView)view.findViewById(R.id.menu_list);
-        ItemMenuCategory itemMenuCategory = (ItemMenuCategory) getArguments().getSerializable("ItemCategory");
+        ItemMenuCategory itemMenuCategory = (ItemMenuCategory) getArguments().getParcelable("ItemCategory");
 
         if(itemMenuCategory.getMenuItemObjectList().size() > 0) {
-            menuListView.setAdapter(new MenuListAdapter(itemMenuCategory.getMenuItemObjectList()));
+            menuListView.setAdapter(new MenuListAdapter(getActivity(),itemMenuCategory.getMenuItemObjectList()));
             menuListView.setLayoutManager(new LinearLayoutManager(getActivity()));
         }
         else {

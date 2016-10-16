@@ -6,24 +6,14 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/menu_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/selected_icon"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@mipmap/ic_select_icon"
-                android:visibility="invisible" />
-
-        </RelativeLayout>
-
+        <ImageView
+            android:id="@+id/selected_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -69,10 +59,10 @@
 
     <LinearLayout
         android:id="@+id/totallayout"
-        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -84,9 +74,9 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:orientation="horizontal">
 
                 <TextView
@@ -98,16 +88,15 @@
                 <TextView
                     android:id="@+id/total_amount"
                     style="@style/itemprice"
-                    android:layout_marginLeft="@dimen/activity_padding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginLeft="@dimen/activity_padding" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -120,8 +109,7 @@
                     android:id="@+id/total_quantity"
                     style="@style/itemQuantity"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_height="wrap_content" />
 
                 <ImageView
                     android:id="@+id/quantity_plus"

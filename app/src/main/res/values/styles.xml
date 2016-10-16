@@ -14,6 +14,14 @@
         <item name="android:textSize">@dimen/primarty_text_size</item>
     </style>
 
+    <style name="itemQuantity">
+        <item name="android:layout_marginLeft">@dimen/activity_padding</item>
+        <item name="android:layout_marginRight">@dimen/activity_padding</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/primarty_text_size</item>
+    </style>
+
     <style name="no_items_text_style">
         <item name="android:textColor">@color/primary_text_color</item>
         <item name="android:textStyle">bold</item>

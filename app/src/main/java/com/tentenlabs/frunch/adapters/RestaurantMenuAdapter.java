@@ -3,7 +3,7 @@ package com.tentenlabs.frunch.adapters;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentPagerAdapter;
 
 import com.tentenlabs.frunch.Fragments.MenuCategoryFragment;
 import com.tentenlabs.frunch.utils.ItemMenuCategory;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by seerasu1 on 10/10/16.
  */
-public class RestaurantMenuAdapter extends FragmentStatePagerAdapter {
+public class RestaurantMenuAdapter extends FragmentPagerAdapter {
 
     List<ItemMenuCategory> ItemMenuCategoryList;
 
@@ -30,7 +30,7 @@ public class RestaurantMenuAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Bundle b = new Bundle();
-        b.putSerializable("ItemCategory",ItemMenuCategoryList.get(position));
+        b.putParcelable("ItemCategory",ItemMenuCategoryList.get(position));
         MenuCategoryFragment menuCategoryFragment = new MenuCategoryFragment();
         menuCategoryFragment.setArguments(b);
         return menuCategoryFragment;
