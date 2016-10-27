@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch.adapters;
+package com.frunch.main.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tentenlabs.frunch.R;
-import com.tentenlabs.frunch.utils.MenuItemObject;
+import com.frunch.main.R;
+import com.frunch.main.utils.MenuItemObject;
 
 import java.util.List;
 

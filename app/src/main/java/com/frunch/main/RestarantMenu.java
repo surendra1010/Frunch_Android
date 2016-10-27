@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch;
+package com.frunch.main;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,13 +16,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.astuetz.PagerSlidingTabStrip;
-import com.tentenlabs.frunch.adapters.MenuListAdapter;
-import com.tentenlabs.frunch.adapters.RestaurantMenuAdapter;
-import com.tentenlabs.frunch.utils.ItemMenuCategory;
-import com.tentenlabs.frunch.utils.MenuItemObject;
-import com.tentenlabs.frunch.utils.MyToast;
-import com.tentenlabs.frunch.utils.RestarantObject;
-import com.tentenlabs.frunch.utils.Utils;
+import com.frunch.main.adapters.MenuListAdapter;
+import com.frunch.main.adapters.RestaurantMenuAdapter;
+import com.frunch.main.utils.ItemMenuCategory;
+import com.frunch.main.utils.MenuItemObject;
+import com.frunch.main.utils.MyToast;
+import com.frunch.main.utils.RestarantObject;
+import com.frunch.main.utils.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

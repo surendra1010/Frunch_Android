@@ -1,12 +1,12 @@
-package com.tentenlabs.frunch.adapters;
+package com.frunch.main.adapters;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.tentenlabs.frunch.Fragments.MenuCategoryFragment;
-import com.tentenlabs.frunch.utils.ItemMenuCategory;
+import com.frunch.main.Fragments.MenuCategoryFragment;
+import com.frunch.main.utils.ItemMenuCategory;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch;
+package com.frunch.main;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.tentenlabs.frunch.adapters.RestarantsAdapter;
-import com.tentenlabs.frunch.utils.MyToast;
-import com.tentenlabs.frunch.utils.RestarantObject;
-import com.tentenlabs.frunch.utils.Utils;
+import com.frunch.main.adapters.RestarantsAdapter;
+import com.frunch.main.utils.MyToast;
+import com.frunch.main.utils.RestarantObject;
+import com.frunch.main.utils.Utils;
 
 import org.json.JSONArray;
 

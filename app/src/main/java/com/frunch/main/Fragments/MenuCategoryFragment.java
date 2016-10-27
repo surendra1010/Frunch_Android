@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch.Fragments;
+package com.frunch.main.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.tentenlabs.frunch.R;
-import com.tentenlabs.frunch.adapters.MenuListAdapter;
-import com.tentenlabs.frunch.utils.ItemMenuCategory;
+import com.frunch.main.R;
+import com.frunch.main.adapters.MenuListAdapter;
+import com.frunch.main.utils.ItemMenuCategory;
 
 /**
  * Created by seerasu1 on 11/10/16.

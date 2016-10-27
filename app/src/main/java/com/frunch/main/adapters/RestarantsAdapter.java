@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch.adapters;
+package com.frunch.main.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.tentenlabs.frunch.R;
-import com.tentenlabs.frunch.RestarantMenu;
-import com.tentenlabs.frunch.utils.RestarantObject;
+import com.frunch.main.R;
+import com.frunch.main.RestarantMenu;
+import com.frunch.main.utils.RestarantObject;
 
 import java.util.List;
 

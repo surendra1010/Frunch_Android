@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch.utils;
+package com.frunch.main.utils;
 
 import android.content.Context;
 import android.widget.Toast;

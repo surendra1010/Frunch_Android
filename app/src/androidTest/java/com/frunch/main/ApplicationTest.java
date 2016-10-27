@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch;
+package com.frunch.main;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

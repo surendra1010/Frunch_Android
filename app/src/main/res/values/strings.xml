@@ -2,7 +2,11 @@
     <string name="app_name">Frunch</string>
 
     /*Dialog lables*/
+    <string name="dialog_yes">YES</string>
+    <string name="dialog_no">NO</string>
     <string name="please_wait">Please wait</string>
+    <string name="getting_location">Getting location</string>
+    <string name="location_permission">You need to switch on GPS listener to get near by restaurants. Do you want to do that ?</string>
 
     /*APIs*/
     <string name="restarants_list">http://frunch.mybluemix.net/api/Restaurants</string>
@@ -10,5 +14,27 @@
     /*Error messages*/
     <string name="network_error">Please check your network connection.</string>
     <string name="no_items_text">No items available.</string>
+    <string name="login_error">Email and Password are mandatory.</string>
+    <string name="all_fields_error">All fields are mandatory.</string>
+    <string name="passwords_diff">Passwords are not same.</string>
+
+    /*Login page*/
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="new_user">New User ?</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="login_with">Login with</string>
+    <string name="facebook">Facebook</string>
+    <string name="google_plus">Google+</string>
+    <string name="twitter">twitter</string>
+
+    /*Registration*/
+    <string name="registration">Registration</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="mobile">Mobile</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="register">Register</string>
 
 </resources>

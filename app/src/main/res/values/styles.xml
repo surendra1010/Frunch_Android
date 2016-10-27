@@ -28,4 +28,11 @@
         <item name="android:textSize">@dimen/primarty_text_size</item>
     </style>
 
+    <style name="button_style">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_marginTop">@dimen/activity_padding</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
 </resources>

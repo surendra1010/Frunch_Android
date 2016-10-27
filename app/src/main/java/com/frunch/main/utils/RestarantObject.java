@@ -1,4 +1,4 @@
-package com.tentenlabs.frunch.utils;
+package com.frunch.main.utils;
 
 import android.os.Parcel;
 import android.os.Parcelable;
